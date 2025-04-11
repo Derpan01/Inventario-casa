@@ -8,19 +8,23 @@
 </head>
 <body>
 
-    <script src="input.js" type="module"></script>
+    <script src="eliminar.js" type="module"></script>
     
     <h1>Sacar productos</h1>
 
-    <form name="test">
-        <select id="productoS" name="productoS">
+    <form id="test">
+        <select id="selectP" name="selectP">
             <option value="">Selecciona un producto</option>
         </select>
+        <select id="selectC" name="selectC">
+            <option value=""></option>
+        </select>
+        <button type="submit">Eliminar</button>
     </form>
 
     <br><br>
 
-    <div id="productoInfo"></div>
+    <button onclick="window.location.href='index.html'">Regresar</button>
 
 </body>
 </html>
