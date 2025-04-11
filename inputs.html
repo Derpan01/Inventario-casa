@@ -5,15 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>homepage</title>
-</head>
-<body>
-    
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.0.0/dist/umd/supabase.js"></script>
     <script src="input.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm"></script>
+</head>
+<body>
 
     <h1>a</h1>
 
-    <form onsubmit="agregarProducto(); return false;">
+    <form id="formulario" onsubmit="guardarEnInventario(); return false;">
         <div style="display: flex; align-items: cente; gap: 8px;">
             <p>Producto:   </p>
             <input type="text" id="producto" name="producto">
