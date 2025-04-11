@@ -1,9 +1,20 @@
+import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
+
+const supabaseUrl = 'https://ivbfaduevotbrkgggjwr.supabase.co';
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Iml2YmZhZHVldm90YnJrZ2dnandyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDQzMTgxOTIsImV4cCI6MjA1OTg5NDE5Mn0.ziXW6xVX53Mm6VKLUiVdD-k4f3chR8s36IiTj64_dlA';
+const supabase = createClient(supabaseUrl, supabaseKey);
+
 
 
 let inventario = {};
 
 document.addEventListener("DOMContentLoaded", function() {
     
+    formulario.addEventListener("submit", function(event) {
+        event.preventDefault(); // Esto previene la recarga de la página
+        agregarProducto(); // Llamamos a la función que agregará el producto
+    });
+
     let inv = inventario;
 
     // Asegúrate de que el ID del select coincida
@@ -32,21 +43,18 @@ function agregarProducto() {
     document.getElementById("cantidad").value = '';
 
     console.log(inventario);
-    agregarProducto(p,c)
+    guardarEnInventario(p,c);
 }
-
-import supabase from './supabase'
 
 async function guardarEnInventario(producto, cantidad) {
-  const { data, error } = await supabase
-    .from('inventario')
-    .insert([
-      { producto: producto, cantidad: cantidad }
-    ])
-
-  if (error) {
-    console.error('Error al guardar:', error)
-  } else {
-    console.log('Guardado:', data)
+    const { data, error } = await supabase
+      .from('inventario') // nombre de tu tabla
+      .insert([{ name: producto, quantity: cantidad }]); // columnas que tengas
+  
+    if (error) {
+      console.error('Error al guardar en la base de datos:', error.message);
+    } else {
+      console.log('Producto guardado correctamente:', data);
+    }
   }
-}
+  
