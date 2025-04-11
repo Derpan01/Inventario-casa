@@ -47,14 +47,44 @@ function agregarProducto() {
 }
 
 async function guardarEnInventario(producto, cantidad) {
+    // Verificar si el producto ya existe en la base de datos
     const { data, error } = await supabase
-      .from('inventario') // nombre de tu tabla
-      .insert([{ name: producto, quantity: cantidad }]); // columnas que tengas
-  
+        .from('inventario') // nombre de tu tabla
+        .select('id, name, quantity') // Selecciona el id, nombre y cantidad
+        .eq('name', producto); // Filtra por el nombre del producto
+
     if (error) {
-      console.error('Error al guardar en la base de datos:', error.message);
-    } else {
-      console.log('Producto guardado correctamente:', data);
+        console.error('Error al verificar el producto:', error.message);
+        return;
     }
-  }
+
+    if (data.length > 0) {
+        // Si el producto ya existe, actualizamos su cantidad
+        const productoExistente = data[0]; // Obtenemos el primer producto (debería ser único)
+
+        const nuevaCantidad = parseInt(productoExistente.quantity) + parseInt(cantidad); // Sumar la cantidad actual con la nueva cantidad
+
+        const { updateData, updateError } = await supabase
+            .from('inventario')
+            .update({ quantity: nuevaCantidad }) // Actualizamos la cantidad
+            .eq('id', productoExistente.id); // Filtramos por el id del producto
+
+        if (updateError) {
+            console.error('Error al actualizar el producto:', updateError.message);
+        } else {
+            console.log(`Producto ${producto} actualizado. Nueva cantidad: ${nuevaCantidad}`);
+        }
+    } else {
+        // Si el producto no existe, lo insertamos
+        const { insertData, insertError } = await supabase
+            .from('inventario')
+            .insert([{ name: producto, quantity: cantidad }]); // Insertamos el nuevo producto con la cantidad
+
+        if (insertError) {
+            console.error('Error al insertar el producto:', insertError.message);
+        } else {
+            console.log(`Producto ${producto} agregado con cantidad: ${cantidad}`);
+        }
+    }
+}
   
