@@ -4,10 +4,6 @@ const supabaseUrl = 'https://ivbfaduevotbrkgggjwr.supabase.co';
 const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Iml2YmZhZHVldm90YnJrZ2dnandyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDQzMTgxOTIsImV4cCI6MjA1OTg5NDE5Mn0.ziXW6xVX53Mm6VKLUiVdD-k4f3chR8s36IiTj64_dlA';
 const supabase = createClient(supabaseUrl, supabaseKey);
 
-
-
-let inventario = {};
-
 // JS
 async function cargarInventario() {
     // 1. Obtener los datos desde Supabase
