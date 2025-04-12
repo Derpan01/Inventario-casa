@@ -18,16 +18,52 @@
         nav button {
           cursor: pointer; /* Hace que el cursor sea una mano al pasar sobre el botón */
         }
+        .caja {
+          text-align: center;
+          border: 3px solid;
+          padding: 2px;
+          margin: 0 auto;
+          width: 170px;
+        }
+        .linea {
+          padding: 0px;
+          width: 170px;
+        }
+        body {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+          margin: 0;
+          flex-direction: column;
+          background-color: black;
+        }
+        h1 {
+          color: antiquewhite;
+          text-transform: uppercase;
+          font-family: 'Garamond', serif;
+          font-style: italic;
+        }
+        button {
+          border: 2px solid white;
+          padding: 4px;
+          color: antiquewhite;
+          background-color: black;
+          font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+          width: 100px;
+        }
       </style>
 </head>
 <body>
     <h1>¿Qué quieres hacer?</h1>
 
-    <nav>
-        <ul>
-            <li><button onclick="window.location.href='inputs.html'">Ingresar productos</button></li>
-            <li><button onclick="window.location.href='inventario.html'">Mostrar productos</button></li>
-            <li><button onclick="window.location.href='eliminar.html'">Eliminar productos</button></li>
+    <nav class="caja">
+        <ul class="linea">
+            <li class="linea"><button onclick="window.location.href='inputs.html'">Ingresar productos</button></li>
+            <br>
+            <li class="linea"><button onclick="window.location.href='inventario.html'">Mostrar productos</button></li>
+            <br>
+            <li class="linea"><button onclick="window.location.href='eliminar.html'">Eliminar productos</button></li>
         </ul>
     </nav>
 
