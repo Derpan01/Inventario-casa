@@ -1,0 +1,47 @@
+nav ul {
+    list-style-type: none; /* Quita los puntos de la lista */
+    padding: 0; /* Elimina el espacio adicional alrededor de la lista */
+}
+
+nav li {
+    margin: 0; /* Quita el margen extra que pueda haber en los elementos de la lista */
+}
+
+nav button {
+    cursor: pointer; /* Hace que el cursor sea una mano al pasar sobre el botón */
+}
+.caja {
+    text-align: center;
+    border: 3px solid;
+    padding: 2px;
+    margin: 0 auto;
+    width: 170px;
+}
+.linea {
+    padding: 0px;
+    width: 170px;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    flex-direction: column;
+    background-color: black;
+}
+h1 {
+    color: antiquewhite;
+    text-transform: uppercase;
+    font-family: 'Garamond', serif;
+    font-style: italic;
+    font-size: 28px;
+}
+button {
+    border: 2px solid white;
+    padding: 4px;
+    color: antiquewhite;
+    background-color: black;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    width: 100px;
+}

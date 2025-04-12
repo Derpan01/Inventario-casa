@@ -1,0 +1,22 @@
+table {
+    border: 2px;
+    color: aliceblue;
+    text-align: center;
+}
+body {
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    flex-direction: column;
+}
+.cantidad {
+    padding-right: 10px;
+    padding-left: 10px;
+}
+td {
+    padding-right: 10px;
+    padding-left: 10px;
+}
