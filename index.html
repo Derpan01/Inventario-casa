@@ -20,5 +20,25 @@
         </ul>
     </nav>
 
+    <input type="file" id="fondoInput" accept="image/*" style="display: none;">
+    <button class="fondo" onclick="document.getElementById('fondoInput').click()">Elegir y aplicar fondo</button>
+
+    <script>
+        const input = document.getElementById('fondoInput');
+
+        input.addEventListener('change', () => {
+            const archivo = input.files[0];
+            if (archivo) {
+            const lector = new FileReader();
+            lector.onload = function(e) {
+                document.body.style.backgroundImage = `url(${e.target.result})`;
+                document.body.style.backgroundSize = 'cover';
+                document.body.style.backgroundPosition = 'center';
+            };
+            lector.readAsDataURL(archivo);
+        }
+    });
+    </script>
+
 </body>
 </html>

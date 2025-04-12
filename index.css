@@ -45,3 +45,24 @@ button {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     width: 100px;
 }
+.boton {
+    border: 2px solid white;
+    padding: 4px;
+    color: antiquewhite;
+    background-color: black;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    width: 100px;
+}
+
+.fondo {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    border: 2px solid white;
+    padding: 4px;
+    color: antiquewhite;
+    background-color: black;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    width: 100px;
+    cursor: pointer;
+}
