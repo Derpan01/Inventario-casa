@@ -49,3 +49,8 @@ div {
     display: block;
     margin: 0 auto;
 }
+.txt {
+    margin-top: 10px;
+    height: 20px;
+    width: 200px;
+}
