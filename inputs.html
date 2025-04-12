@@ -5,11 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>homepage</title>
+    <link rel="stylesheet" href="inputs.css">
 </head>
 <body>
     <script src="input.js" type="module"></script>
 
-    <h1>a</h1>
+    <h1>Ingresa el producto</h1>
 
     <form id="formulario" onsubmit="agregarProducto(); return false;">
         <div style="display: flex; align-items: cente; gap: 8px;">
@@ -23,11 +24,13 @@
             <p>Cantidad:   </p>
             <input type="number" id="cantidad" name="cantidad" min="1">
         </div>
+
+        <br>
     
-        <button type="submit">Ingresar</button>
+        <button class="submit" type="submit">Ingresar</button>
     </form>
 
-    <button onclick="window.location.href='index.html'">Regresar</button>
+    <button class="regresar" onclick="window.location.href='index.html'">Regresar</button>
     
 
 </body>

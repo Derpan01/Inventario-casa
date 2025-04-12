@@ -1,0 +1,52 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    flex-direction: column;
+    background-color: black;
+}
+h1 {
+    color: antiquewhite;
+    text-transform: uppercase;
+    font-family: 'Garamond', serif;
+    font-style: italic;
+    font-size: 28px;
+}
+button {
+    border: 2px solid white;
+    padding: 4px;
+    color: antiquewhite;
+    background-color: black;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    width: 100px;
+}
+.regresar {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    border: 2px solid white;
+    padding: 4px;
+    color: antiquewhite;
+    background-color: black;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    width: 100px;
+    cursor: pointer;
+}
+select {
+    background-color: black;
+    color: antiquewhite;
+    border: 2px solid white;
+    padding: 4px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    width: 150px;
+    margin: 4px;
+}
+.submit {
+    display: block;
+    margin: 0 auto;
+}
+.cantidad {
+    width: 60px;
+}
