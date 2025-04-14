@@ -32,6 +32,7 @@ document.addEventListener("DOMContentLoaded", function() {
 function agregarProducto() {
     const p = document.getElementById('producto').value;
     const c = parseInt(document.getElementById('cantidad').value);
+    const t = document.getElementById("tipo").value;
 
     if (p in inventario) {
         inventario[p] += c;
@@ -41,16 +42,18 @@ function agregarProducto() {
 
     document.getElementById("producto").value = '';
     document.getElementById("cantidad").value = '';
+    document.getElementById("tipo").value;
 
     console.log(inventario);
-    guardarEnInventario(p,c);
+    console.log(typeof(t));
+    guardarEnInventario(p,c,t);
 }
 
-async function guardarEnInventario(producto, cantidad) {
+async function guardarEnInventario(producto, cantidad, tipo) {
     // Verificar si el producto ya existe en la base de datos
     const { data, error } = await supabase
-        .from('inventario') // nombre de tu tabla
-        .select('id, name, quantity') // Selecciona el id, nombre y cantidad
+        .from('inventarioprueba') // nombre de tu tabla
+        .select('id, name, quantity, type') // Selecciona el id, nombre y cantidad
         .eq('name', producto); // Filtra por el nombre del producto
 
     if (error) {
@@ -65,7 +68,7 @@ async function guardarEnInventario(producto, cantidad) {
         const nuevaCantidad = parseInt(productoExistente.quantity) + parseInt(cantidad); // Sumar la cantidad actual con la nueva cantidad
 
         const { updateData, updateError } = await supabase
-            .from('inventario')
+            .from('inventarioprueba')
             .update({ quantity: nuevaCantidad }) // Actualizamos la cantidad
             .eq('id', productoExistente.id); // Filtramos por el id del producto
 
@@ -77,8 +80,8 @@ async function guardarEnInventario(producto, cantidad) {
     } else {
         // Si el producto no existe, lo insertamos
         const { insertData, insertError } = await supabase
-            .from('inventario')
-            .insert([{ name: producto, quantity: cantidad }]); // Insertamos el nuevo producto con la cantidad
+            .from('inventarioprueba')
+            .insert([{ name: producto, quantity: cantidad, type: tipo }]); // Insertamos el nuevo producto con la cantidad
 
         if (insertError) {
             console.error('Error al insertar el producto:', insertError.message);

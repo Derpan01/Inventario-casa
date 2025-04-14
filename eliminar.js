@@ -8,8 +8,8 @@ const supabase = createClient(supabaseUrl, supabaseKey);
 async function cargarInventario() {
     // 1. Obtener los datos desde Supabase
     const { data, error } = await supabase
-      .from('inventario')
-      .select('id, name, quantity');
+      .from('inventarioprueba')
+      .select('id, name, quantity, type');
   
     if (error) {
       console.error('Error al obtener inventario:', error.message);
@@ -62,7 +62,7 @@ function eliminarProducto() {
 
     // Buscar el producto en la base de datos
     const { data, error } = await supabase
-        .from("inventario")
+        .from("inventarioprueba")
         .select("id, quantity")
         .eq("name", productoSeleccionado)
         .single();
@@ -77,7 +77,7 @@ function eliminarProducto() {
 
     // Actualizar la cantidad
     const { error: updateError } = await supabase
-        .from("inventario")
+        .from("inventarioprueba")
         .update({ quantity: nuevaCantidad })
         .eq("id", data.id);
 
