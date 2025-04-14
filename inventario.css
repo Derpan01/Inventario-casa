@@ -32,3 +32,10 @@ td {
     width: 100px;
     cursor: pointer;
 }
+h1 {
+    color: antiquewhite;
+    text-transform: uppercase;
+    font-family: 'Garamond', serif;
+    font-style: italic;
+    font-size: 28px;
+}
