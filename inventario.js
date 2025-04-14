@@ -5,7 +5,7 @@ const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 async function mostrarInventario() {
-    const { data, error } = await supabase.from('inventario').select();
+    const { data, error } = await supabase.from('inventarioprueba').select();
   
     if (error) {
       console.error('Error al obtener inventario:', error.message);
