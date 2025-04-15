@@ -76,10 +76,16 @@ function eliminarProducto() {
     const nuevaCantidad = cantidadActual - cantidadSeleccionada;
 
     // Actualizar la cantidad
-    const { error: updateError } = await supabase
+    if (nuevaCantidad => 0) {
+      const { error: updateError } = await supabase
         .from("inventarioprueba")
         .update({ quantity: nuevaCantidad })
         .eq("id", data.id);
+    } else {
+      console.log("No puede bajar de 0")
+      alert("No puede bajar de 0.")
+    }
+    
 
     if (updateError) {
         console.error("Error al actualizar la cantidad:", updateError.message);
